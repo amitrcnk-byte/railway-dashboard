@@ -1,0 +1,650 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: "Arial Narrow", "Roboto Condensed", "Segoe UI", Arial, sans-serif;
+  background: #020403;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    #020403;
+  background-size: 32px 32px;
+  color: #effdf5;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+select {
+  width: 100%;
+  border: 1px solid rgba(103, 232, 249, 0.42);
+  border-radius: 6px;
+  background: rgba(2, 6, 23, 0.88);
+  color: #ecfeff;
+  outline: none;
+  padding: 0.78rem 0.85rem;
+}
+
+input:focus,
+select:focus {
+  border-color: #fde047;
+  box-shadow: 0 0 0 3px rgba(253, 224, 71, 0.13);
+}
+
+label {
+  display: grid;
+  gap: 0.45rem;
+  color: #a7f3d0;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.app-shell,
+.login-grid {
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.app-shell {
+  display: grid;
+  gap: 1rem;
+  max-width: 1900px;
+  margin: 0 auto;
+}
+
+.app-shell.is-tv {
+  max-width: none;
+  padding: 0.7rem;
+}
+
+.topbar,
+.nav-strip,
+.toolbar,
+.stat-card,
+.coach-table,
+.admin-form,
+.admin-list,
+.login-card,
+.login-hero,
+.ticker {
+  border: 1px solid rgba(103, 232, 249, 0.42);
+  background: rgba(3, 7, 18, 0.9);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.12);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+}
+
+.brand-block,
+.login-hero {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-block h1,
+.login-hero h1 {
+  margin: 0.22rem 0;
+  color: #fef08a;
+  font-size: clamp(1.55rem, 3vw, 3rem);
+  font-weight: 950;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-shadow: 0 0 18px rgba(250, 204, 21, 0.35);
+}
+
+.brand-block span,
+.login-hero p,
+.clock-panel span,
+small {
+  color: #94a3b8;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #67e8f9;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.rail-logo {
+  position: relative;
+  display: grid;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  place-items: center;
+  border: 4px solid #facc15;
+  border-radius: 50%;
+  background: #020617;
+  box-shadow: 0 0 26px rgba(250, 204, 21, 0.34);
+}
+
+.rail-logo::before,
+.rail-logo::after {
+  content: "";
+  position: absolute;
+  background: #fef08a;
+  box-shadow: 0 0 12px rgba(254, 240, 138, 0.65);
+}
+
+.rail-logo::before {
+  width: 46px;
+  height: 3px;
+}
+
+.rail-logo::after {
+  width: 3px;
+  height: 46px;
+}
+
+.rail-logo span {
+  z-index: 1;
+  border: 1px solid #34d399;
+  background: #020617;
+  padding: 0.12rem 0.34rem;
+  color: white;
+  font-weight: 950;
+}
+
+.clock-panel {
+  min-width: 210px;
+  border: 1px solid rgba(74, 222, 128, 0.55);
+  padding: 0.8rem 1rem;
+  text-align: right;
+  box-shadow: 0 0 18px rgba(74, 222, 128, 0.16);
+}
+
+.clock-panel strong {
+  display: block;
+  color: #bbf7d0;
+  font-size: 2rem;
+  letter-spacing: 0.08em;
+}
+
+.nav-strip,
+.toolbar,
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.nav-strip {
+  padding: 0.65rem;
+}
+
+.nav-strip button,
+.primary-btn,
+.ghost-btn,
+.danger-btn,
+.exit-tv {
+  min-height: 42px;
+  border: 1px solid rgba(103, 232, 249, 0.45);
+  border-radius: 6px;
+  background: rgba(15, 23, 42, 0.86);
+  color: #dffbff;
+  font-weight: 900;
+  padding: 0.65rem 1rem;
+  text-transform: uppercase;
+}
+
+.nav-strip button.active,
+.primary-btn {
+  border-color: rgba(253, 224, 71, 0.8);
+  background: linear-gradient(180deg, #facc15, #ca8a04);
+  color: #111827;
+}
+
+.danger-btn {
+  border-color: rgba(248, 113, 113, 0.75);
+  color: #fecaca;
+}
+
+.exit-tv {
+  position: fixed;
+  top: 0.8rem;
+  right: 0.8rem;
+  z-index: 10;
+}
+
+.dashboard {
+  display: grid;
+  gap: 1rem;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 180px 220px;
+  padding: 0.75rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem;
+}
+
+.stat-card span {
+  color: #94a3b8;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.stat-card strong {
+  font-size: clamp(2rem, 4vw, 4.2rem);
+  line-height: 1;
+}
+
+.stat-card.cyan strong {
+  color: #a5f3fc;
+}
+
+.stat-card.yellow strong {
+  color: #fef08a;
+}
+
+.stat-card.green strong {
+  color: #bbf7d0;
+}
+
+.stat-card.red strong {
+  color: #fecaca;
+}
+
+.coach-table {
+  overflow-x: auto;
+}
+
+.table-head,
+.coach-row {
+  display: grid;
+  grid-template-columns: 0.7fr 0.8fr minmax(330px, 2fr) 0.9fr 1fr;
+  gap: 0;
+  min-width: 1120px;
+}
+
+.table-head {
+  background: rgba(8, 145, 178, 0.14);
+}
+
+.table-head span,
+.coach-row > div {
+  border-right: 1px solid rgba(103, 232, 249, 0.22);
+  border-bottom: 1px solid rgba(103, 232, 249, 0.22);
+  padding: 0.88rem;
+}
+
+.table-head span {
+  color: #a5f3fc;
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.coach-row {
+  background: rgba(2, 6, 23, 0.72);
+}
+
+.coach-row.delayed {
+  background: rgba(127, 29, 29, 0.2);
+}
+
+.coach-row.ready,
+.coach-row.complete {
+  background: rgba(20, 83, 45, 0.18);
+}
+
+.coach-row strong {
+  display: block;
+  color: #f8fafc;
+  font-size: 1.08rem;
+  letter-spacing: 0.06em;
+}
+
+.coach-row small {
+  display: block;
+  margin-top: 0.24rem;
+}
+
+.progress-cell {
+  display: grid;
+  grid-template-columns: 1fr 70px;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.progress-cell b {
+  color: #bbf7d0;
+  font-size: 1.5rem;
+  text-align: right;
+}
+
+.coach-shell {
+  position: relative;
+  height: 70px;
+  overflow: hidden;
+  border: 3px solid rgba(226, 232, 240, 0.92);
+  border-radius: 18px 18px 10px 10px;
+  background: #0f172a;
+  box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.12), 0 0 18px rgba(34, 211, 238, 0.18);
+}
+
+.coach-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0 4px, transparent 4px 14px),
+    linear-gradient(90deg, #0891b2, #22c55e, #bef264);
+  box-shadow: 0 0 24px rgba(74, 222, 128, 0.52);
+  transition: width 900ms cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.coach-windows {
+  position: absolute;
+  inset: 13px 34px auto;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 7px;
+}
+
+.coach-windows span {
+  height: 16px;
+  border: 1px solid rgba(236, 254, 255, 0.82);
+  background: rgba(2, 6, 23, 0.68);
+}
+
+.coach-name {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 0.56rem;
+  font-weight: 950;
+  letter-spacing: 0.22em;
+  white-space: nowrap;
+}
+
+.wheel-set {
+  position: absolute;
+  right: 38px;
+  bottom: 2px;
+  left: 38px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wheel-set span {
+  width: 27px;
+  height: 10px;
+  border: 1px solid #e2e8f0;
+  border-bottom: 0;
+  border-radius: 20px 20px 0 0;
+  background: #020617;
+}
+
+.status-badge {
+  display: inline-flex;
+  width: 100%;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  border-radius: 6px;
+  padding: 0.42rem 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.status-badge.delayed {
+  border-color: rgba(248, 113, 113, 0.8);
+  background: rgba(239, 68, 68, 0.17);
+  color: #fecaca;
+  animation: warningPulse 1.2s ease-in-out infinite;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: 1rem;
+}
+
+.admin-form,
+.admin-list,
+.login-card,
+.login-hero {
+  padding: 1rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin: 1rem 0;
+}
+
+.admin-form h2,
+.login-card h2 {
+  margin: 0.2rem 0 0;
+  color: #fef08a;
+  font-size: 1.7rem;
+}
+
+.admin-list {
+  display: grid;
+  align-content: start;
+  gap: 0.75rem;
+  max-height: 640px;
+  overflow: auto;
+}
+
+.admin-list article {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 6px;
+  padding: 0.8rem;
+  background: rgba(15, 23, 42, 0.65);
+}
+
+.compact button {
+  min-height: 34px;
+  padding: 0.45rem 0.7rem;
+}
+
+.alert {
+  border: 1px solid;
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  font-weight: 800;
+}
+
+.alert.warn {
+  border-color: rgba(253, 224, 71, 0.52);
+  background: rgba(113, 63, 18, 0.28);
+  color: #fef3c7;
+}
+
+.alert.danger {
+  border-color: rgba(248, 113, 113, 0.6);
+  background: rgba(127, 29, 29, 0.34);
+  color: #fecaca;
+}
+
+.login-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(320px, 440px);
+  align-items: center;
+  gap: 1rem;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.login-hero {
+  min-height: 420px;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-card {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.ticker {
+  overflow: hidden;
+}
+
+.ticker div {
+  display: flex;
+  width: max-content;
+  gap: 4rem;
+  padding: 0.75rem 0;
+  color: #bbf7d0;
+  font-size: 1.25rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  animation: ticker 26s linear infinite;
+}
+
+.app-shell.is-tv .nav-strip,
+.app-shell.is-tv .toolbar,
+.app-shell.is-tv .alert {
+  display: none;
+}
+
+.app-shell.is-tv .topbar {
+  padding: 0.7rem 1rem;
+}
+
+.app-shell.is-tv .coach-row strong {
+  font-size: 1.35rem;
+}
+
+.app-shell.is-tv .coach-shell {
+  height: 82px;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes warningPulse {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.35);
+  }
+}
+
+@media (max-width: 980px) {
+  .topbar,
+  .login-grid,
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    display: grid;
+  }
+
+  .clock-panel {
+    text-align: left;
+  }
+
+  .toolbar,
+  .stats-grid,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-block,
+  .login-hero {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell,
+  .login-grid {
+    padding: 0.6rem;
+  }
+
+  .brand-block {
+    display: grid;
+  }
+
+  .rail-logo {
+    width: 58px;
+    height: 58px;
+    flex-basis: 58px;
+  }
+
+  .clock-panel strong {
+    font-size: 1.55rem;
+  }
+
+  .ticker div {
+    font-size: 0.95rem;
+  }
+}
